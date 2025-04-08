@@ -14,10 +14,11 @@ import './global.js';
 import Post from './Post.jsx'
 import Button from './Button.jsx'
 import Task from './Task.jsx'
+import Employee from '../Employee.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Task/>
+    <Employee/>
     
   </StrictMode>,
 )

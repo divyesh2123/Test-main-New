@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    .checkbox {
+      margin-top: 15px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <form onsubmit="handleSubmit(event)">
+    <h2>Register</h2>
+
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" value="Mr">
+
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="    " value="Jason">
+
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" name="lastName" value="Watmore">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" value="jaso1n@example.com">
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" value="pass1234">
+
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" value="pass1234">
+
+    <div class="checkbox">
+      <input type="checkbox" id="acceptTerms" name="acceptTerms" checked>
+      <label for="acceptTerms">I accept the Terms and Conditions</label>
+    </div>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+
+    function handleSubmit(e)
+    {
+        e.preventDefault();
+
+        let d = {
+                "title" : document.getElementById("title").value,
+                "firstName": document.getElementById("firstName").value,
+                "lastName": document.getElementById("lastName").value,
+                "email": document.getElementById("email").value,
+                "password": document.getElementById("password").value,
+                "confirmPassword": document.getElementById("confirmPassword").value,
+                "acceptTerms": document.getElementById("acceptTerms").checked
+        }
+
+        console.log(d);
+
+        fetch("http://localhost:4000/accounts/register",{
+            method: "POST",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify(d)
+        }).then(y=>y.json()).then(y=>{
+            console.log(y);
+        }).catch(y=>{
+            console.log(y);
+        })
+
+    }
+
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="display">
+
+        <form onsubmit="handleSubmit(event)">
+
+
+        </form>
+
+    </div>
+    <script>
+
+        function handleSubmit(e)
+        {   
+            e.preventDefault();
+
+            let d= new FormData(e);
+
+            console.log(d);
+            
+
+
+        }
+
+        fetch("https://jsonplaceholder.typicode.com/postsqa").
+        then(y=>y.json())
+        .then(y=>{
+            console.log(y);
+           document.getElementById("display").innerHTML =y.slice(-3).map((v)=>{
+            return `<div>
+              Title :   ${v.title}
+              ID :  ${v.id}
+              
+              </div>`
+           }).join(" ");
+        }).catch(y=>{
+            document.getElementById("display").innerHTML = "This is the error";
+        })
+
+
+
+    </script>
+    
+</body>
+</html>
