@@ -16,10 +16,13 @@ import Button from './Button.jsx'
 import Task from './Task.jsx'
 import Employee from '../Employee.jsx'
 import Headers from './components/Headers.jsx'
+import Example from './Example'
+import ExampleWithFormik from './ExampleWithFormik.jsx';
+import MuiExample from './MuiExample';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Headers/>
+    <MuiExample/>
     
   </StrictMode>,
 )
