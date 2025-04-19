@@ -22,7 +22,7 @@ import MuiExample from './MuiExample';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <MuiExample/>
+    <ExampleWithFormik/>
     
   </StrictMode>,
 )
